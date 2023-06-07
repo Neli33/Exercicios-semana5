@@ -2,15 +2,10 @@ package com.example.despesas.service;
 
 import com.example.despesas.model.Despesas;
 import com.example.despesas.repository.DespesasRepository;
-import jakarta.persistence.metamodel.SingularAttribute;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.domain.AbstractPersistable;
 import org.springframework.stereotype.Service;
 
-import java.io.Serializable;
 import java.util.List;
-
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 @Service
 public class DespasasServiceImpl implements DespesasService {
@@ -26,7 +21,12 @@ public class DespasasServiceImpl implements DespesasService {
 
     @Override
     public List<Despesas> bucarTodos() {
-        return null;
+        return despesaRepository.findAll();
+    }
+
+    @Override
+    public List<Despesas> consultarDespesas() {
+        return despesaRepository.findAll();
     }
 
     @Override

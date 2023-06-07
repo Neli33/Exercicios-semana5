@@ -10,6 +10,8 @@ public interface DespesasService {
 
     List<Despesas> bucarTodos();
 
+    List<Despesas> consultarDespesas();
+
     Despesas buscarPorId(Long id) throws Exception;
 
 

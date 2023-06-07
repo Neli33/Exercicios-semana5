@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/despesas")
 public class DespesasController {
@@ -37,6 +39,14 @@ public class DespesasController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @GetMapping
+    public ResponseEntity<List<Despesas>> consultarDespesas() {
+        List<Despesas> despesas = despesasService.bucarTodos();
+        return ResponseEntity.ok(despesas);
+    }
+
+
 
 }
 
