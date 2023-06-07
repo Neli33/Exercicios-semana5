@@ -46,6 +46,13 @@ public class DespesasController {
         return ResponseEntity.ok(despesas);
     }
 
+    @GetMapping("/por-status/{status}")
+    public ResponseEntity<List<Despesas>> consultarDespesasPorStatus(@PathVariable String status) {
+        List<Despesas> despesas = despesasService.consultarDespesasPorStatus(status);
+        return ResponseEntity.ok(despesas);
+    }
+
+
 
 
 }

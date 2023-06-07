@@ -55,7 +55,12 @@ public class DespasasServiceImpl implements DespesasService {
 
         return despesaRepository.save(despesaExistente);
     }
-
+    @Override
+    public List<Despesas> consultarDespesasPorStatus(String status) {
+        return despesaRepository.findByStatus(status);
     }
+
+
+}
 
 

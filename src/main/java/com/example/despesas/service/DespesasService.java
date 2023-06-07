@@ -20,4 +20,5 @@ public interface DespesasService {
     Despesas alterarDespesa(Despesas despesaExistente) throws Exception;
 
 
+    List<Despesas> consultarDespesasPorStatus(String status);
 }
