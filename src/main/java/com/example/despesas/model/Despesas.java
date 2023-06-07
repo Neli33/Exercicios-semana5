@@ -3,6 +3,7 @@ package com.example.despesas.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.math.BigDecimal;
 
@@ -35,4 +36,6 @@ public class Despesas {
     private String status = "Pendente";
 
 
+    public void setDataDePagamento(LocalDate now) {
+    }
 }

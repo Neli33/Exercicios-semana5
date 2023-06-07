@@ -45,6 +45,16 @@ public class DespesasController {
         List<Despesas> despesas = despesasService.bucarTodos();
         return ResponseEntity.ok(despesas);
     }
+    @PutMapping("/pagar/{id}")
+    public ResponseEntity<String> pagarDespesa(@PathVariable Long id) {
+        try {
+            despesasService.pagarDespesa(id);
+            return ResponseEntity.ok("Despesa paga com sucesso.");
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Erro ao pagar a despesa: " + e.getMessage());
+        }
+    }
+
 
     @GetMapping("/por-status/{status}")
     public ResponseEntity<List<Despesas>> consultarDespesasPorStatus(@PathVariable String status) {

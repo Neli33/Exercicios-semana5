@@ -5,6 +5,7 @@ import com.example.despesas.repository.DespesasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -57,7 +58,22 @@ public class DespasasServiceImpl implements DespesasService {
     }
     @Override
     public List<Despesas> consultarDespesasPorStatus(String status) {
+
         return despesaRepository.findByStatus(status);
+    }
+
+    @Override
+    public void pagarDespesa(Long id) throws Exception {
+        Despesas despesa = despesaRepository.findById(id).orElseThrow(() -> new Exception("Despesa não encontrada."));
+
+        if (despesa.getStatus().equals("Pago")) {
+            throw new Exception("A despesa já está paga.");
+        }
+
+        despesa.setDataDePagamento(LocalDate.now());
+        despesa.setStatus("Pago");
+
+        despesaRepository.save(despesa);
     }
 
 

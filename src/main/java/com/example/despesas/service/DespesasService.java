@@ -21,4 +21,6 @@ public interface DespesasService {
 
 
     List<Despesas> consultarDespesasPorStatus(String status);
+
+    void pagarDespesa(Long id) throws Exception;
 }
