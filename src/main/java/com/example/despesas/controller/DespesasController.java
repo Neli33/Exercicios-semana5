@@ -63,6 +63,15 @@ public class DespesasController {
     }
 
 
+    @PutMapping("/estornar/{id}")
+    public ResponseEntity<String> estornarDespesa(@PathVariable Long id) {
+        try {
+            despesasService.estornarDespesa(id);
+            return ResponseEntity.ok("Despesa estornada com sucesso.");
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Erro ao estornar a despesa: " + e.getMessage());
+        }
+    }
 
 
 }

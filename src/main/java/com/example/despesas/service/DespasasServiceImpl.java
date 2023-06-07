@@ -75,6 +75,20 @@ public class DespasasServiceImpl implements DespesasService {
 
         despesaRepository.save(despesa);
     }
+    @Override
+    public void estornarDespesa(Long id) throws Exception {
+        Despesas despesa = despesaRepository.findById(id).orElseThrow(() -> new Exception("Despesa não encontrada."));
+
+        if (despesa.getStatus().equals("Pendente")) {
+            throw new Exception("A despesa já está pendente.");
+        }
+
+        despesa.setDataDePagamento(null);
+        despesa.setStatus("Pendente");
+
+        despesaRepository.save(despesa);
+    }
+
 
 
 }
