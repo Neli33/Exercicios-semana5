@@ -1,2 +1,21 @@
-package com.example.despesas.service;public interface DespesasService {
+package com.example.despesas.service;
+
+import com.example.despesas.model.Despesas;
+
+import java.util.List;
+
+public interface DespesasService {
+
+    Despesas salvar(Despesas despesa) throws Exception;
+
+    List<Despesas> bucarTodos();
+
+    Despesas buscarPorId(Long id) throws Exception;
+
+
+    Despesas lancarDespesa(Despesas despesa);
+
+    Despesas alterarDespesa(Despesas despesaExistente) throws Exception;
+
+
 }
